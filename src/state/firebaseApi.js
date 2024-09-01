@@ -44,7 +44,19 @@ export const firebaseApi = createApi({
           const courseRef = doc(db, "courses", id);
           const courseSnapshot = await getDoc(courseRef);
           const courseData = courseSnapshot.data();
-          return { data: courseData };
+          if (courseData.instructorId) {
+            const instructorRef = doc(db, "instructors", courseData.instructorId);
+            const instructorSnapshot = await getDoc(instructorRef);
+    
+            if (instructorSnapshot.exists()) {
+              const instructorData = instructorSnapshot.data();
+              return { data: { ...courseData, instructor: instructorData } };
+            } else {
+              return { error: "Instructor not found" };
+            }
+          } else {
+            return { data: courseData };
+          }
         }catch(error){
           return { error: error?.message}
         }
