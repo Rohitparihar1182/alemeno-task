@@ -5,7 +5,6 @@ import Loading from "./components/loading";
 export default function CourseGallery() {
 	const {
 		data: courses,
-		error: coursesError,
 		isLoading,
 		isError
 	} = useGetCoursesQuery();
