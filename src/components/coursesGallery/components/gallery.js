@@ -49,7 +49,7 @@ export default function CoursesGallery({ courses }) {
 			<div className="grid grid-cols-1 gap-6 xl:gap-8 md:grid-cols-3 lg:grid-cols-4">
 				{filteredCourses.map((course) => (
 					<div
-						className="shadow-lg flex flex-col gap-2 mb-8"
+						className="flex flex-col gap-2 mb-8"
 						key={course.id}
 					>
 						<Link
@@ -85,7 +85,7 @@ export default function CoursesGallery({ courses }) {
 						</Link>
 						<div className="flex text-gray-300 items-center gap-4 text-xs mt-3 tracking-wide">
 							<Link
-								to={`/instructor/${course.instructor.id}`}
+								to={`/instructors/${course.instructor.id}`}
 								className="block w-12 aspect-square overflow-hidden rounded-full"
 							>
 								<img
@@ -97,7 +97,7 @@ export default function CoursesGallery({ courses }) {
 
 							<div>
 								<Link
-									to={`/instructor/${course.instructor.id}`}
+									to={`/instructors/${course.instructor.id}`}
 								>
 									<h3 className="font-bold text-lg">
 										{course?.instructor.name}
@@ -113,7 +113,6 @@ export default function CoursesGallery({ courses }) {
 					</div>
 				))}
 			</div>
-			{/* Pagination */}
 			<div className="flex justify-center gap-3">
 				<div
 					className="flex justify-center items-center p-4 rounded-full aspect-square border border-white/50 cursor-pointer text-gray-300 hover:border-white hover:text-white transition"

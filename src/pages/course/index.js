@@ -12,7 +12,7 @@ export default function CoursePage() {
 		isError,
 		error,
 	} = useGetCourseQuery(courseId);
-
+	console.log(course)
 	let content;
 
 	if (isSuccess) {
@@ -43,7 +43,7 @@ export default function CoursePage() {
 				{course.instructor && (
 					<div className="flex text-gray-300 items-center gap-4 text-xs mt-3 tracking-wide">
 						<Link
-							to={`/instructor/${course.instructor.id}`}
+							to={`/instructors/${course.instructorId}`}
 							className="block w-12 aspect-square overflow-hidden rounded-full"
 						>
 							<img
@@ -54,7 +54,7 @@ export default function CoursePage() {
 						</Link>
 
 						<div>
-							<Link to={`/instructor/${course?.instructor?.id}`}>
+							<Link to={`/instructors/${course?.instructorId}`}>
 								<h3 className="font-bold text-lg">
 									{course?.instructor.name}
 								</h3>

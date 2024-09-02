@@ -5,6 +5,7 @@ import ScrollTop from "./components/scrollTop";
 import Footer from "./components/footer";
 import HomePage from './pages/home'
 import CoursePage from "./pages/course";
+import InstructorPage from "./pages/instructor";
 
 const router = createBrowserRouter([
 	{
@@ -20,6 +21,14 @@ const router = createBrowserRouter([
 		element: (
 			<Layout>
 				<CoursePage />
+			</Layout>
+		),
+	},
+	{
+		path: "/instructors/:instructorId",
+		element: (
+			<Layout>
+				<InstructorPage />
 			</Layout>
 		),
 	},
